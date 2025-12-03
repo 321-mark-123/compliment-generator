@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Compliment Generator</title>
+    <!-- Google Fonts for all three themes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500&family=Outfit:wght@700&family=Nunito:wght@400;600&family=Clash+Display:wght@700&family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- html-to-image CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.min.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1 id="app-title">AI Compliment Generator</h1>
+        <div class="theme-switcher">
+          <label for="theme-select">Theme:</label>
+          <select id="theme-select">
+            <option value="electric">Electric Empathy</option>
+            <option value="warm">Warm Paper</option>
+            <option value="swiss">Swiss Editorial</option>
+          </select>
+        </div>
+      </header>
+      <section class="form-section">
+        <input type="text" id="scenario-input" placeholder="Describe your scenario..." aria-label="Scenario" />
+        <select id="vibe-select" aria-label="Vibe">
+          <option value="heartfelt">Heartfelt</option>
+          <option value="roast">Roast</option>
+          <option value="professional">Professional</option>
+          <option value="motivational">Motivational</option>
+        </select>
+        <button id="generate-btn">Generate</button>
+      </section>
+      <section class="output-section">
+        <div id="compliment-card">
+          <h2 id="compliment-title">Your Compliment</h2>
+          <p id="compliment-text" aria-live="polite"></p>
+        </div>
+        <div class="actions">
+          <button id="download-btn">Share/Download</button>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

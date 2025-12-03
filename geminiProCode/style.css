@@ -1,0 +1,283 @@
+/* =========================================
+   1. CSS Variables & Theming
+   ========================================= */
+:root {
+    /* DEFAULT: Electric Empathy (Dark/Tech) */
+    --bg-color      : #0F172A;
+    --card-bg       : #1E293B;
+    --accent-color  : #D9F99D;
+    /* Electric Lime */
+    --accent-text   : #0F172A;
+    --text-main     : #F8FAFC;
+    --text-muted    : #94A3B8;
+    --font-heading  : 'Space Grotesk', sans-serif;
+    --font-body     : 'Inter', sans-serif;
+    --border-radius : 16px;
+    --card-border   : 1px solid rgba(255, 255, 255, 0.1);
+    --gradient-text : linear-gradient(135deg, #818CF8, #C084FC);
+}
+
+/* THEME: Warm Paper (Human/Soft) */
+body.theme-warm {
+    --bg-color      : #FDFCF6;
+    --card-bg       : #FFFFFF;
+    --accent-color  : #FF6B6B;
+    /* Vibrant Coral */
+    --accent-text   : #FFFFFF;
+    --text-main     : #333333;
+    --text-muted    : #84A59D;
+    --font-heading  : 'Outfit', sans-serif;
+    --font-body     : 'Nunito', sans-serif;
+    --border-radius : 24px;
+    /* Softer corners */
+    --card-border   : 1px solid #E5E5E5;
+    --gradient-text : none;
+    /* No gradient, just solid color */
+}
+
+/* THEME: Swiss Editorial (Bold/Minimal) */
+body.theme-swiss {
+    --bg-color      : #FFFFFF;
+    --card-bg       : #F5F5F5;
+    --accent-color  : #FF3300;
+    /* International Orange */
+    --accent-text   : #FFFFFF;
+    --text-main     : #000000;
+    --text-muted    : #555555;
+    --font-heading  : 'DM Sans', sans-serif;
+    /* Subbing Clash for standard Google Font */
+    --font-body     : 'DM Sans', sans-serif;
+    --border-radius : 0px;
+    /* Sharp corners */
+    --card-border   : 4px solid #000000;
+    --gradient-text : none;
+}
+
+/* =========================================
+   2. Global Reset & Layout
+   ========================================= */
+* {
+    box-sizing : border-box;
+    margin     : 0;
+    padding    : 0;
+}
+
+body {
+    background-color : var(--bg-color);
+    color            : var(--text-main);
+    font-family      : var(--font-body);
+    min-height       : 100vh;
+    display          : flex;
+    flex-direction   : column;
+    align-items      : center;
+    justify-content  : center;
+    transition       : background-color 0.5s ease, color 0.3s ease;
+    padding          : 20px;
+}
+
+/* =========================================
+   3. Components
+   ========================================= */
+
+/* Theme Switcher Nav */
+.theme-nav {
+    position      : absolute;
+    top           : 20px;
+    display       : flex;
+    gap           : 10px;
+    background    : var(--card-bg);
+    padding       : 8px;
+    border-radius : 50px;
+    border        : var(--card-border);
+}
+
+.theme-btn {
+    background  : transparent;
+    border      : none;
+    color       : var(--text-muted);
+    cursor      : pointer;
+    font-size   : 0.85rem;
+    font-weight : 600;
+    padding     : 6px 12px;
+    transition  : all 0.2s;
+}
+
+.theme-btn:hover,
+.theme-btn.active {
+    color            : var(--accent-text);
+    background-color : var(--accent-color);
+    border-radius    : 20px;
+}
+
+/* Main Container */
+.app-container {
+    display               : grid;
+    grid-template-columns : 1fr;
+    gap                   : 40px;
+    width                 : 100%;
+    max-width             : 900px;
+}
+
+/* Desktop Grid Layout */
+@media (min-width: 768px) {
+    .app-container {
+        grid-template-columns : 1fr 1fr;
+        align-items           : center;
+    }
+}
+
+/* Input Section */
+.controls h1 {
+    font-family    : var(--font-heading);
+    font-size      : 2.5rem;
+    margin-bottom  : 0.5rem;
+    letter-spacing : -0.02em;
+}
+
+/* Special styling for Electric theme text gradient */
+body.theme-electric .controls h1 {
+    background              : var(--gradient-text);
+    -webkit-background-clip : text;
+    -webkit-text-fill-color : transparent;
+}
+
+.controls p {
+    color         : var(--text-muted);
+    margin-bottom : 2rem;
+}
+
+.input-group {
+    margin-bottom  : 1.5rem;
+    display        : flex;
+    flex-direction : column;
+}
+
+label {
+    font-size      : 0.85rem;
+    font-weight    : 600;
+    margin-bottom  : 0.5rem;
+    color          : var(--text-muted);
+    text-transform : uppercase;
+    letter-spacing : 0.05em;
+}
+
+input,
+select {
+    background    : var(--card-bg);
+    border        : var(--card-border);
+    color         : var(--text-main);
+    padding       : 14px;
+    border-radius : 8px;
+    font-family   : var(--font-body);
+    font-size     : 1rem;
+    outline       : none;
+    transition    : border-color 0.2s;
+    width         : 100%;
+}
+
+input:focus,
+select:focus {
+    border-color : var(--accent-color);
+}
+
+/* Button Styling */
+.primary-btn {
+    background-color : var(--accent-color);
+    color            : var(--accent-text);
+    border           : none;
+    width            : 100%;
+    padding          : 16px;
+    font-size        : 1rem;
+    font-weight      : 700;
+    border-radius    : 8px;
+    cursor           : pointer;
+    transition       : transform 0.1s, opacity 0.2s;
+    font-family      : var(--font-heading);
+    display          : flex;
+    justify-content  : center;
+    align-items      : center;
+}
+
+.primary-btn:active {
+    transform : scale(0.98);
+}
+
+.secondary-btn {
+    background    : transparent;
+    border        : 1px solid var(--text-muted);
+    color         : var(--text-muted);
+    padding       : 12px;
+    margin-top    : 1rem;
+    width         : 100%;
+    border-radius : 8px;
+    cursor        : pointer;
+    font-size     : 0.9rem;
+    transition    : all 0.2s;
+}
+
+.secondary-btn:hover {
+    border-color : var(--accent-color);
+    color        : var(--accent-color);
+}
+
+/* The Card (Output) */
+.card {
+    background-color : var(--card-bg);
+    border           : var(--card-border);
+    border-radius    : var(--border-radius);
+    padding          : 3rem 2rem;
+    min-height       : 400px;
+    display          : flex;
+    flex-direction   : column;
+    justify-content  : center;
+    position         : relative;
+    box-shadow       : 0 20px 50px -12px rgba(0, 0, 0, 0.25);
+    transition       : all 0.5s ease;
+}
+
+.card-content {
+    position : relative;
+    z-index  : 2;
+}
+
+.quote-mark {
+    font-family   : var(--font-heading);
+    font-size     : 4rem;
+    color         : var(--accent-color);
+    line-height   : 1;
+    opacity       : 0.5;
+    display       : block;
+    margin-bottom : 1rem;
+}
+
+#result-text {
+    font-family : var(--font-heading);
+    font-size   : 1.75rem;
+    line-height : 1.4;
+    font-weight : 500;
+}
+
+/* Swiss theme specific typography override */
+body.theme-swiss #result-text {
+    font-weight    : 700;
+    font-size      : 2rem;
+    text-transform : uppercase;
+    color          : var(--accent-color);
+}
+
+.card-footer {
+    margin-top      : 2rem;
+    padding-top     : 1rem;
+    border-top      : 1px solid rgba(128, 128, 128, 0.2);
+    display         : flex;
+    justify-content : space-between;
+    font-size       : 0.8rem;
+    color           : var(--text-muted);
+    text-transform  : uppercase;
+    letter-spacing  : 1px;
+}
+
+/* Utility */
+.hidden {
+    display : none !important;
+}
