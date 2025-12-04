@@ -3,70 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Compliment Generator</title>
-
+    <title>The Delight Deck</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;700&family=Inter:wght@400;600&family=Nunito:wght@400;600&family=Outfit:wght@500;700&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet" />
-
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="theme-electric">
-    <nav class="theme-nav">
-      <button class="theme-btn" data-theme="electric">Electric</button>
-      <button class="theme-btn" data-theme="warm">Warm</button>
-      <button class="theme-btn" data-theme="swiss">Swiss</button>
-    </nav>
+  <body>
+    <canvas id="bg-canvas"></canvas>
 
     <main class="app-container">
-      <section class="controls">
-        <header>
-          <h1>Vibe Check</h1>
-          <p>Tell us the situation, get a boost.</p>
-        </header>
-
-        <div class="input-group">
-          <label for="scenario">Scenario</label>
-          <input
-            type="text"
-            id="scenario"
-            placeholder="e.g. I just fixed a bug that took 3 days..."
-            autocomplete="off" />
-        </div>
-
-        <div class="input-group">
-          <label for="vibe">Select Vibe</label>
-          <div class="select-wrapper">
-            <select id="vibe">
-              <option value="heartfelt">Heartfelt 💖</option>
-              <option value="roast">Roast-pliment 🔥</option>
-              <option value="professional">Professional 💼</option>
-              <option value="motivational">Motivational 🚀</option>
-            </select>
+      <div id="capture-area" class="card-container">
+        <div class="playing-card">
+          <div class="card-corner top-right" style="background-color: #ff9a9e">
+            <span>♠️</span>
           </div>
-        </div>
+          <div class="card-corner bottom-left" style="background-color: #a18cd1">
+            <span>♣️</span>
+          </div>
 
-        <button id="generate-btn" class="primary-btn">
-          <span class="btn-text">Generate Compliment</span>
-          <span class="loader hidden"></span>
-        </button>
-      </section>
-
-      <section class="output-area">
-        <div id="compliment-card" class="card">
           <div class="card-content">
-            <span class="quote-mark">“</span>
-            <p id="result-text" aria-live="polite">Your compliment will appear here...</p>
+            <h2 id="card-title">VIBE CHECK</h2>
+
+            <div id="text-area">
+              <p id="setup-text">Ready?</p>
+              <p id="punchline-text" class="hidden"></p>
+            </div>
+
             <div class="card-footer">
-              <span id="footer-vibe">Waiting for input</span>
-              <span class="brand">AI Compliments</span>
+              <span class="brand">Delight Deck</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <button id="download-btn" class="secondary-btn hidden">Download Snapshot 📸</button>
+      <section class="controls">
+        <div class="input-row">
+          <input type="text" id="scenario" placeholder="Scenario (for compliments)..." autocomplete="off" />
+          <select id="vibe">
+            <option value="heartfelt">Heartfelt</option>
+            <option value="roast">Roast</option>
+            <option value="professional">Professional</option>
+          </select>
+        </div>
+
+        <div class="button-row">
+          <button id="btn-compliment" class="action-btn primary">Generate Compliment</button>
+          <button id="btn-joke" class="action-btn secondary">Tell me a Joke</button>
+        </div>
+
+        <button id="btn-download" class="text-link hidden">Download Card</button>
       </section>
     </main>
 

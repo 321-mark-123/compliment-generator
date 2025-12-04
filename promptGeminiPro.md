@@ -253,3 +253,13 @@ Provide the code in three distinct code blocks (`index.html`, `style.css`, `scri
 
 * **Do not** use Tailwind or Bootstrap; write custom CSS with variables.
 * Add brief comments explaining the logic, especially for the Typewriter effect and the API fetch structure.
+
+## Prompt6  
+
+i would like the mein container to look like a playing card, have a circle in the top right and bottom left, differnet color each time you can emojis or fontawsome icons inside, try to have a wide variety. i want this card to have a fixed width and height, and i want it to be the dimensions of a playing card.  
+i also want to move the button outside of the card  
+remove the emojies inside it  
+add a second button for generating jokes  
+array with 50 different family friendly jokes  
+if theres a setup and a punchline animate in teh punchline after a few seconds.  
+backgroung more visually interesting , threeJS possible  
